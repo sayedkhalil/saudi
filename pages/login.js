@@ -24,7 +24,8 @@ const Login = () => {
     const infoSnap = await getDoc(docRef)
     if(infoSnap.data().email==mail){
       localStorage.setItem("uid",infoSnap.data().uid)
-      router.push('/admin')
+      window.location.href='https://saudi-eosin.vercel.app'
+
     }
      else{
         alert("تأكد من صحة البريد والرقم السري")
@@ -35,8 +36,7 @@ const Login = () => {
         <>
                 <Head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
-   <title>مصنع فرسان الإنشاءات  للصناعة</title>
-   <link rel="icon" href="wew.png" type="image/x-icon" />
+   <title>تسجيل الدخول </title>
         </Head>
       <div className="my-5 h20 container">
         <h1>تسجيل الدخول</h1>

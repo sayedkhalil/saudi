@@ -11,17 +11,22 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import Team from "../pages/team";
 
 const NEw = (props) => {
+    let bb=[]
+    
     let de=[]
     const [category1,setcategory1]=useState([]);
     const [team,setteam]=useState(props.data)
-    const [bgg,setbgg]=useState("bg-secondary");
+    const [ej,setej]=useState(props.data.filter(x=>x.valuee=="اجتاز"));
+    const [bd,setbd]=useState(0);
+
     useEffect(async()=>{
         const codelist = collection(db, 'category');
         const codesnapshot = await getDocs(codelist);
        
         const catolist = codesnapshot.docs?codesnapshot.docs.map(doc =>{ de.push(doc.data());   }):de
         setcategory1(de)
-     
+        
+
         return catolist
        },[])
        const onct =(e)=>{
@@ -58,7 +63,15 @@ const NEw = (props) => {
              else{return("bg-secondary")}
         
        }
-       
+    //    const rrr=()=>{
+
+    //      props.data.forEach(x=>{if(x.valuee=="اجتاز"){ 
+    //         setbd(bd=bd+1)  
+    //          console.log(bd)
+    //      }})
+
+    //    }
+    //    rrr()
     return (  
         <div className="mt-3">
         <Head>
@@ -82,12 +95,12 @@ crossOrigin="anonymous">
         
     </div>
     <div className="col-3 p-2 row m-0">
-       <p  className="text-center bg-li siz col- m-0 ">{team.filter(x=>x.value=!"0").length}</p>
+       <p  className="text-center bg-li siz col- m-0 ">27</p>
        <p  className="text-center bg-info text-light m-0 h6 p-2  col-12 ">تم التقييم</p>
         
     </div>
     <div className="col-3 p-2 row m-0">
-       <p  className="text-center bg-li siz col- m-0 ">{team.filter(x=>x.value=="اجتاز").length}</p>
+       <p  className="text-center bg-li siz col- m-0 ">23</p>
        <p  className="text-center bg-success text-light m-0 h6 p-2  col-12 ">تم قبولهم </p>
         
     </div>

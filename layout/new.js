@@ -14,6 +14,7 @@ const NEw = (props) => {
     let de=[]
     const [category1,setcategory1]=useState([]);
     const [team,setteam]=useState(props.data)
+    const [bgg,setbgg]=useState("bg-secondary");
     useEffect(async()=>{
         const codelist = collection(db, 'category');
         const codesnapshot = await getDocs(codelist);
@@ -48,6 +49,14 @@ const NEw = (props) => {
         const docRef = await setDoc(doc(db, "broductes", v.code), {
             ...v,timee:e.target.value}); 
      
+       }
+       const onbgg=(x)=>{
+        if(x=="اجتاز"){return("bg-success")}
+        else if (x=="لم يجتاز")  {return("bg-danger")}      
+        else if (x=="انتظار"){return("bg-warning")}
+          
+             else{return("bg-secondary")}
+        
        }
        
     return (  
@@ -98,14 +107,11 @@ crossOrigin="anonymous">
         <select value="" className="col-2 p-1" onChange={onsl}>
     <option value="" disabled selected> نتيجة المقابلة     
         </option>
-        <option value="اجتاز" > اجتاز    
-        </option>
+        <option value="اجتاز" >اجتاز</option>
         
-        <option value="لم يجتاز" > لم يجتاز    
-        </option>
+        <option value="لم يجتاز" >لم يجتاز</option>
         
-        <option value="انتظار" > انتظار    
-        </option>
+        <option value="انتظار" >انتظار</option>
         
         <option value="0" > لم تتم المقابلة    
         </option>
@@ -118,7 +124,7 @@ crossOrigin="anonymous">
     <div className=" w-100 dir d-none d-lg-block">
   
 <div className="row w-100 dir">
-    <div className="col-3">
+    <div className="col-2">
         <p  className="h6 text-center text-info my-4">الاسم</p>
     </div>
     <div className="col-2">
@@ -130,8 +136,8 @@ crossOrigin="anonymous">
     <div className="col-2">
         <p  className="h6 text-center text-info my-4">تاريخ المقابلة</p>
     </div>
-    <div className="col-1">
-        <p  className="h6 text-center text-info my-4">الموعد</p>
+    <div className="col-2">
+        <p  className="h6 text-center text-info my-4">الوظيفة المتعاقد عليها</p>
     </div>
      <div className="col-1">
         <p  className="h6 text-center text-info my-4">cv</p>
@@ -144,8 +150,8 @@ crossOrigin="anonymous">
     { 
     team.map((item)=>(
         <div className="row w-100 dir " key={item.key}>
-        <div className="col-8 col-lg-3">
-            <p  className="bg-secondary p-1 rounded text-light">{item.title}</p>
+        <div className="col-8 col-lg-2">
+            <p  className={`${onbgg(item.valuee)} p-1 rounded text-light`}>{item.title}</p>
         </div>
         <div className="col-4 col-lg-2">
             <p  className="bg-light border border-secondary p-1 rounded text-center">{item.category}</p>
@@ -159,8 +165,9 @@ crossOrigin="anonymous">
         <div className="col-6 col-lg-2">
             <p className="bg-light border border-secondary p-1 rounded text-center">{item.datee}</p>
         </div>
-        <div className="col-4 col-lg-1">
-            <input className="bg-light border border-secondary p-1 rounded text-center" onChange={(e)=>ontimee(e,item.code)} type="time" name="" value={item.timee=="0"?"":item.timee} min="09:00" max="17:00"  />
+        <div className="col-4 col-lg-2">
+            {/* <input className="bg-light border border-secondary p-1 rounded text-center" onChange={(e)=>ontimee(e,item.code)} type="time" name="" value={item.timee=="0"?"":item.timee} min="09:00" max="17:00"  /> */}
+            <p className="bg-light border border-secondary p-1 rounded text-center">{item.job?item.job:"لم  تحدد الوظيفة بعد"}</p>
         </div>
          <div className="col-4 col-lg-1">
             <p className="bg-light border border-secondary p-1 rounded text-center">
@@ -169,7 +176,7 @@ crossOrigin="anonymous">
             </p>
         </div>
         <div className="col-4 col-lg-1">
-            <p className="bg-light border border-secondary p-1 rounded text-center">{item.valuee=="0"?"لم يقيم":item.valuee}</p>
+            <p className={`${onbgg(item.valuee)} border border-secondary  text-light p-1 rounded text-center`}>{item.valuee=="0"?"لم يقيم":item.valuee}</p>
         </div>
         </div>
     ))}

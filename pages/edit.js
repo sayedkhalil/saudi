@@ -14,7 +14,7 @@ export const getStaticProps =async()=>{
     const prodlist = collection(db, 'broductes');
     const prodsnapshot = await getDocs(prodlist);
     const products =async()=>await prodsnapshot.docs?prodsnapshot.docs.map(doc =>{ pro.push({code:doc.data().code,
-        title:doc.data().title,category:doc.data().category,imges:doc.data().imges[0],telee:doc.data().telee?doc.data().telee:"0",datee:doc.data().datee?doc.data().datee:"0",timee:doc.data().timee?doc.data().timee:"0",valuee:doc.data().valuee?doc.data().valuee:"0"});   }):[]
+        title:doc.data().title,category:doc.data().category,imges:doc.data().imges,telee:doc.data().telee?doc.data().telee:"0",datee:doc.data().datee?doc.data().datee:"0",timee:doc.data().timee?doc.data().timee:"0",valuee:doc.data().valuee?doc.data().valuee:"0",ok:doc.data().ok?doc.data().ok:"0",res:doc.data().res?doc.data().res:"0"});   }):[]
     
     products()
    

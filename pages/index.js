@@ -58,7 +58,7 @@ export async function getServerSideProps(){
   const prodlist = collection(db, 'broductes');
   const prodsnapshot = await getDocs(prodlist);
   const products =async()=>await prodsnapshot.docs?prodsnapshot.docs.map(doc =>{ pro.push({code:doc.data().code,
-  title:doc.data().title,category:doc.data().category,imges:doc.data().imges[0],telee:doc.data().telee?doc.data().telee:"0",datee:doc.data().datee?doc.data().datee:"0",job:doc.data().job?doc.data().job:"",timee:doc.data().timee?doc.data().timee:"0",valuee:doc.data().valuee?doc.data().valuee:"0"});   }):[]
+  title:doc.data().title,category:doc.data().category,imges:doc.data().imges,telee:doc.data().telee?doc.data().telee:"0",datee:doc.data().datee?doc.data().datee:"0",job:doc.data().job?doc.data().job:"",timee:doc.data().timee?doc.data().timee:"0",valuee:doc.data().valuee?doc.data().valuee:"0",ok:doc.data().ok?doc.data().ok:"0",res:doc.data().res?doc.data().res:"0"});   }):[]
   const opnion = collection(db, 'opnion');
   const opnionsnap = await getDocs(opnion);
   const getopnion =async()=> opnionsnap?opnionsnap.docs.map(doc =>{opnionarr.push(doc.data());   }):[];
@@ -68,7 +68,7 @@ export async function getServerSideProps(){
   const n= query(newlist, where("category", "==","أبواب حديد"));
   const nprodsnapshot= await getDocs(n);
    nprodsnapshot?nprodsnapshot.forEach(doc =>{ neww.push({code:doc.data().code,
-      title:doc.data().title,category:doc.data().category,imges:doc.data().imges[0]})  }):neww
+      title:doc.data().title,category:doc.data().category,imges:doc.data().imges})  }):neww
      return{
       props:{getdata:{data:de,products:pro,getcov:getcover,getpart:getpartn,getopn:opnionarr,getinfo:getinfo,getnew:neww}}
            }

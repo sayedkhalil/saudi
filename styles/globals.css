@@ -212,3 +212,27 @@ background-attachment: fixed;
 .bg2y{
   background-color: rgb(225, 176, 98);
 }
+.dia{
+  position: fixed;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(200, 194, 194);
+direction: rtl;
+}
+.clos{
+  position: absolute;
+  left: 10px;
+  top:10px;
+
+}
+.ondis{
+  display: block;
+  transition: 10 all ease-in-out;
+
+}
+.ofdis{
+  display: none;
+  transition: 10 all ease-in-out;
+}

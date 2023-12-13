@@ -82,6 +82,11 @@ crossOrigin="anonymous"></script>
 </nav>
 <ul className={`nav justify-content-center ${styles.navdesk}`}>
 <li className="nav-item ">
+    <Link href="/team1">
+    <a className="nav-link text-white " >تمت الموافقة من الشركة</a>
+    </Link>
+  </li>
+<li className="nav-item ">
     <Link href="/team">
     <a className="nav-link text-white " >تكوين الفريق</a>
     </Link>
@@ -116,6 +121,7 @@ crossOrigin="anonymous"></script>
     </button>
     <div className="  navbar-collapse " >
       <ul className={`navbar-nav ${nav} `}>
+        
         <li className="nav-item ms-auto">
            <Link href={`/`}>
           <a className="nav-link active" aria-current="page" >الرئيسية</a>
@@ -124,6 +130,11 @@ crossOrigin="anonymous"></script>
         <li className="nav-item ms-auto">
            <Link href={`/team`}>
           <a className="nav-link active" aria-current="page" >تكوين الفريق</a>
+          </Link>
+        </li>
+        <li className="nav-item ms-auto">
+           <Link href={`/team1`}>
+          <a className="nav-link active" aria-current="page" >القائمة النهائية</a>
           </Link>
         </li>
        

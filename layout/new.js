@@ -70,7 +70,7 @@ const NEw = (props) => {
        }
        const onbggg=(x)=>{
         if(x=="yes"){return("bg-success")}
-        else if (x=="no")  {return("bg-danger")}      
+        else if (x=="nono")  {return("bg-danger")}      
        
           
              else{return("bg-light")}

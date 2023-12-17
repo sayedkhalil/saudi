@@ -41,7 +41,7 @@ const Team1 = ({getdata}) => {
        
        const onu =(e)=>setjob(e.target.value)
 
-       const onj=async(e,rr)=>{
+       const onj =async(e,rr)=>{
         const h=team
         const v =team.find((x)=>x.code==rr)
         const docRef = await setDoc(doc(db, "broductes", v.code), {

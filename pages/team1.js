@@ -29,6 +29,7 @@ const Team1 = ({getdata}) => {
     const [team1,setteam1]=useState(getdata.products.filter(x=>x.ok=="yes"&&x.loc=="1"))
     const [team2,setteam2]=useState(getdata.products.filter(x=>x.ok=="yes"&&x.loc=="2"))
     const [team3,setteam3]=useState(getdata.products.filter(x=>x.ok=="yes"&&x.loc=="3"))
+    const [team4,setteam4]=useState(getdata.products.filter(x=>x.ok=="yes"&&x.loc=="4"))
     useEffect(async()=>{
         const codelist = collection(db, 'category');
         const codesnapshot = await getDocs(codelist);
@@ -77,7 +78,7 @@ crossOrigin="anonymous">
 
     <div className=" w-100 row dir  ">
   
-<div className="row col-4 p-1  dir">
+<div className="row col-3 p-1  dir">
 <div className="col-12">
     <p  className="text-center bg-li siz col- m-0 ">{team1.length}</p>
         <p  className="h6 text-center bg-info text-light p-2 my-4">فريق الرياض</p>
@@ -92,7 +93,7 @@ crossOrigin="anonymous">
     </div>
     
     </div>
-    <div className="row col-4 p-1  dir">
+    <div className="row col-3 p-1  dir">
 <div className="col-12">
 <p  className="text-center bg-li siz col- m-0 ">{team2.length}</p>
         <p  className="h6 text-center bg-secondary text-light p-2 my-4">فريق المواقع</p>
@@ -107,7 +108,7 @@ crossOrigin="anonymous">
     </div>
     
     </div>
-    <div className="row col-4 p-1  dir">
+    <div className="row col-3 p-1  dir">
 <div className="col-12">
 <p  className="text-center bg-li siz col- m-0 ">{team3.length}</p>
         <p  className="h6 text-center bg-success text-light p-2 my-4">فريق وسط الرياض</p>
@@ -122,8 +123,23 @@ crossOrigin="anonymous">
     </div>
     
     </div>
+    <div className="row col-3 p-1  dir">
+<div className="col-12">
+<p  className="text-center bg-li siz col- m-0 ">{team3.length}</p>
+        <p  className="h6 text-center bg-success text-light p-2 my-4">فريق التدعيم والتدخل</p>
     </div>
-    <div className="row col-4 dir " >
+    <div className="col-6">
+        <p  className="h6 text-center text-info my-4">الاسم</p>
+    </div>
+   
+   
+    <div className="col-6">
+        <p  className="h6 text-center text-info my-4">الوظيفة المتعاقد عليها</p>
+    </div>
+    
+    </div>
+    </div>
+    <div className="row col-3 dir " >
     { 
     team1.map((item)=>(
         <div className="row col-12 p-1 dir " key={item.key}>
@@ -139,7 +155,7 @@ crossOrigin="anonymous">
         </div>
     ))}
    </div>
-   <div className="row col-4 dir " >
+   <div className="row col-3 dir " >
     { 
     team2.map((item)=>(
         <div className="row col-12 p-1 dir " key={item.key}>
@@ -155,7 +171,7 @@ crossOrigin="anonymous">
         </div>
     ))}
    </div>
-   <div className="row col-4 dir " >
+   <div className="row col-3 dir " >
     { 
     team3.map((item)=>(
         <div className="row col-12 p-1 dir " key={item.key}>
@@ -171,7 +187,22 @@ crossOrigin="anonymous">
         </div>
     ))}
    </div>
+   <div className="row col-3 dir " >
+    { 
+    team4.map((item)=>(
+        <div className="row col-12 p-1 dir " key={item.key}>
+        <div className="col-8 col-lg-6">
+            <p  className="bg-success p-1 rounded text-light">{item.title}</p>
+        </div>
    
+   
+     
+        <div className="col-4 col-lg-6">
+        <p  className="bg-light p-1 rounded text-dark">{item.job}</p>
+              </div>
+        </div>
+    ))}
+   </div>
     
 
     
